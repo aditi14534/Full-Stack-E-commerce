@@ -1,5 +1,4 @@
-// Replace process.env.REACT_APP_BACKEND_URL with Vite's import.meta.env
-const backendDomain = import.meta.env.VITE_BACKEND_URL; // "http://localhost:8080"
+const backendDomain = import.meta.env.VITE_BACKEND_URL;
 
 const SummaryApi = {
   signUP: {
