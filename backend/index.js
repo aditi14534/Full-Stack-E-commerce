@@ -8,22 +8,11 @@ const router = require("./routes");
 
 const app = express();
 
-// ✅ CORS setup
-const allowedOrigins = (process.env.FRONTEND_URL || "")
-  .split(",")
-  .map((o) => o.trim());
-
+// ✅ Simple and reliable CORS setup
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // allow tools like Postman (no origin)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-      return callback(new Error("Not allowed by CORS"));
-    },
-    credentials: true, // allow cookies/headers
+    origin: [process.env.FRONTEND_URL],
+    credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
@@ -43,5 +32,6 @@ connectDB().then(() => {
   app.listen(PORT, () => {
     console.log("Connected to DB");
     console.log("Server running on port " + PORT);
+    console.log("Allowed origin:", process.env.FRONTEND_URL);
   });
 });
