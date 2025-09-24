@@ -1,6 +1,11 @@
 async function userLogout(req, res) {
   try {
-    res.clearCookie("token");
+    // Same options use karo jo login mein use kiye the
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    });
 
     res.json({
       message: "Logged out successfully",
