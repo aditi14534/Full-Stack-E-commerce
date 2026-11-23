@@ -2,7 +2,7 @@
 
 A production-ready MERN stack e-commerce application featuring JWT authentication, role-based access control, an interactive admin dashboard, and secure Razorpay payment integration.
 
-🔗 **Live Demo:** https://full-stack-e-commerce-ebon.vercel.app/
+🔗 **Live Demo:** https://full-stack-e-commerce-15xe.vercel.app/
 
 ## 🌟 Key Features
 
